@@ -1,0 +1,11 @@
+$ git pull https://github.com/nikolayresh/Brainfuck-Runner.git
+$ nano "Brainfuck-Runner/BrainfuckRunner.Library/BrainfuckRunner.Library.csproj"
+Old:
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+New:
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+$ rm -r Brainfuck-Runner/.git

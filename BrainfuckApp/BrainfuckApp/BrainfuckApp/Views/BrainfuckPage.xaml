@@ -1,13 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:BrainfuckApp.ViewModels"
              x:Class="BrainfuckApp.Views.BrainfuckPage">
+    <ContentPage.BindingContext>
+        <vm:BrainfuckViewModel/>
+    </ContentPage.BindingContext>
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                <Editor AutoSize="TextChanges" HeightRequest="80" Text="{Binding Code,Mode=TwoWay}"/>
+                <Editor AutoSize="TextChanges" Text="{Binding Input,Mode=TwoWay}" Placeholder="Standard input"/>
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Clear" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Command="{Binding CodeClearCommand}" />
+                    <Button Text="Back Space" Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Command="{Binding CodeBackspaceCommand}" />
+                    <Button Text="&gt;" Grid.Row="1" Grid.Column="0" Command="{Binding CodeAppendCommand}" CommandParameter="&gt;"/>
+                    <Button Text="&lt;" Grid.Row="1" Grid.Column="1" Command="{Binding CodeAppendCommand}" CommandParameter="&lt;"/>
+                    <Button Text="+" Grid.Row="1" Grid.Column="2" Command="{Binding CodeAppendCommand}" CommandParameter="+"/>
+                    <Button Text="-" Grid.Row="1" Grid.Column="3" Command="{Binding CodeAppendCommand}" CommandParameter="-"/>
+                    <Button Text="." Grid.Row="2" Grid.Column="0" Command="{Binding CodeAppendCommand}" CommandParameter="."/>
+                    <Button Text="," Grid.Row="2" Grid.Column="1" Command="{Binding CodeAppendCommand}" CommandParameter=","/>
+                    <Button Text="[" Grid.Row="2" Grid.Column="2" Command="{Binding CodeAppendCommand}" CommandParameter="["/>
+                    <Button Text="]" Grid.Row="2" Grid.Column="3" Command="{Binding CodeAppendCommand}" CommandParameter="]"/>
+                </Grid>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

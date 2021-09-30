@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <RepositoryUrl></RepositoryUrl>
+    <PackageProjectUrl>https://github.com/nikolayresh/Brainfuck-Runner</PackageProjectUrl>
+    <Authors>Nikolay Reshetinsky</Authors>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageTags>brainfuck, interpreter, brainfuck-interpreter, brainfuck-parser</PackageTags>
+    <Version>1.0.9</Version>
+    <AssemblyVersion>1.0.9</AssemblyVersion>
+    <FileVersion>1.0.9</FileVersion>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Company>Nikolay Reshetinsky (777nickresh@gmail.com)</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="CodeFiles/99_Bottles_Of_Beer.bf" />
+    <None Remove="CodeFiles/alphabet.bf" />
+    <None Remove="CodeFiles/BusyBeaver.bf" />
+    <None Remove="CodeFiles/DisplayAscii.bf" />
+    <None Remove="CodeFiles/factor.bf" />
+    <None Remove="CodeFiles/Hanoi.bf" />
+    <None Remove="CodeFiles/HelloWorld.bf" />
+    <None Remove="CodeFiles/LetterA.bf" />
+    <None Remove="CodeFiles/long.bf" />
+    <None Remove="CodeFiles/Mandel.bf" />
+    <None Remove="CodeFiles/PrimeNumbers.bf" />
+    <None Remove="CodeFiles\BenchOne.bf" />
+    <None Remove="CodeFiles\BenchTwo.bf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="CodeFiles\99_Bottles_Of_Beer.bf" />
+    <EmbeddedResource Include="CodeFiles\Alphabet.bf" />
+    <EmbeddedResource Include="CodeFiles\BenchOne.bf" />
+    <EmbeddedResource Include="CodeFiles\BenchTwo.bf" />
+    <EmbeddedResource Include="CodeFiles\BusyBeaver.bf" />
+    <EmbeddedResource Include="CodeFiles\DisplayAscii.bf" />
+    <EmbeddedResource Include="CodeFiles\Factor.bf" />
+    <EmbeddedResource Include="CodeFiles\Hanoi.bf" />
+    <EmbeddedResource Include="CodeFiles\HelloWorld.bf" />
+    <EmbeddedResource Include="CodeFiles\LetterA.bf" />
+    <EmbeddedResource Include="CodeFiles\Long.bf" />
+    <EmbeddedResource Include="CodeFiles\Mandel.bf" />
+    <EmbeddedResource Include="CodeFiles\PrimeNumbers.bf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BrainfuckRunner.Library\BrainfuckRunner.Library.csproj" />
+  </ItemGroup>
+
+</Project>

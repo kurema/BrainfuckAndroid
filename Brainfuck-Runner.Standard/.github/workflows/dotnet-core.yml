@@ -1,0 +1,36 @@
+name: .NET Core
+
+on:
+  workflow_dispatch:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+      - QuickFixes/**
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: windows-latest
+
+    steps:
+     - name: Checkout Code
+       uses: actions/checkout@v2
+      
+     - name: Setup .NET Core
+       uses: actions/setup-dotnet@v1.7.2
+       with:
+         dotnet-version: '3.1.x'
+        
+     - name: Install dependencies
+       run: dotnet restore
+      
+     - name: Build
+       run: dotnet build --configuration Release --no-restore
+       
+     - name: Show Tests to Run
+       run: dotnet test --list-tests
+      
+     - name: Run Tests
+       run: dotnet test --configuration Release --verbosity detailed
